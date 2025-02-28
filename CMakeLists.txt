@@ -26,3 +26,10 @@ add_executable(cap_gam_main
 
 # Link our library into the main executable
 target_link_libraries(cap_gam_main PRIVATE capgam_hello)
+
+# Enable testing
+option(ENABLE_TESTING "Enable building tests" ON)
+if (ENABLE_TESTING)
+    enable_testing()
+    add_subdirectory(test)
+endif()
