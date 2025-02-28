@@ -2,6 +2,6 @@
 #include <capgam/math/primative_operators.hpp>
 
 TEST(MathTest, AddTest) {
-	int result = summation::sum(4, 6);
+	int result = calculate::int_sum(4, 6);
 	EXPECT_EQ(result, 10);
 }

@@ -1,7 +1,7 @@
 #include <capgam/math/primative_operators.hpp>
 
-namespace summation {
-	int sum(int a, int b) {
+namespace calculate {
+	int int_sum(int a, int b) {
 		return a + b;
 	}
 }
