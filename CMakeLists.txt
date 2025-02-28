@@ -11,6 +11,7 @@ endif()
 # Create a library from "hello" source
 add_library(capgam_hello
     src/hello.cpp
+    src/math/primative_operator.cpp
 )
 
 # Add header path for library
