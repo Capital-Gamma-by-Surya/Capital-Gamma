@@ -9,15 +9,4 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-add_executable(test_hello
-	test_hello.cpp
-)
-
-# Link with gtest and library
-target_link_libraries(test_hello
-	PRIVATE
-		gtest_main
-		capgam_hello
-)
-
-add_test(NAME test_hello COMMAND test_hello)
+add_subdirectory(basic)
