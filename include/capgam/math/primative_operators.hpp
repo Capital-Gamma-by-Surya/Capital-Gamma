@@ -8,7 +8,7 @@ namespace calculate {
 
 	int int_multiply(int a, int b);
 
-	std::vector<int> int_vec_sum(std::vector<int> a, std::vector<int> b);
+	std::vector<int> int_vec_sum(const std::vector<int>& a, const std::vector<int>& b);
 }
 
 #endif

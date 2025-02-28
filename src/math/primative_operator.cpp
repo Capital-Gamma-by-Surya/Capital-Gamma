@@ -9,11 +9,11 @@ namespace calculate {
 		return a * b;
 	}
 
-	std::vector<int> int_vec_sum(std::vector<int> a, std::vector<int> b) { 
-		std::vector<int> result;
+	std::vector<int> int_vec_sum(const std::vector<int>& a, const std::vector<int>& b) { 
 		int n_elems = b.size(); 
+		std::vector<int> result(n_elems);
 		for (int i = 0; i < n_elems; i++) {
-			result.push_back(a[i] + b[i]);
+			result[i] = a[i] + b[i];
 		}
 
 		return result;
