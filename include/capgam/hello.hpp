@@ -4,7 +4,7 @@
 #include <string>
 
 namespace capgam {
-	std::string getHelloWorld();
+	std::string get_hello_world();
 }
 
 #endif // !CAPGAM_HELLO_HPP
