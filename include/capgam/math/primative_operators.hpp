@@ -14,7 +14,18 @@ namespace calculate {
 		return a * b;
 	}
 
-	std::vector<int> int_vec_sum(const std::vector<int>& a, const std::vector<int>& b);
+	template <typename T>
+	std::vector<T> vec_sum(const std::vector<T>& a, const std::vector<T>& b) { 
+		size_t n_elems = b.size(); 
+		std::vector<T> result;
+		result.reserve(n_elems);
+
+		for (size_t i = 0; i < n_elems; i++) {
+			result.push_back(a[i] + b[i]);
+		}
+
+		return result;
+	}
 }
 
 #endif

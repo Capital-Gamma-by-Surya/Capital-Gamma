@@ -12,9 +12,11 @@ TEST(MathTest, MultiplyTest) {
 }
 
 TEST(MathTest, VecAddTest) {
-	std::vector<int> a{ 1, 2 };
-	std::vector<int> b{ 4, 5 };
-	std::vector<int> result = calculate::int_vec_sum(a, b);
-	std::vector<int> exp_result{ 5, 7 };
-	EXPECT_EQ(result, exp_result);
+	for (int i = 0; i < 100000; i++) {
+		std::vector<int> a{ 1, 2 };
+		std::vector<int> b{ 4, 5 };
+		std::vector<int> result = calculate::vec_sum<int>(a, b);
+		std::vector<int> exp_result{ 5, 7 };
+		EXPECT_EQ(result, exp_result);
+	}
 }
