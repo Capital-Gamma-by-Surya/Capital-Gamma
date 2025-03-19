@@ -8,11 +8,14 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Create a library from "hello" source
 add_library(capgam_hello
     src/hello.cpp
     src/math/primative_operator.cpp
     src/options/payoffs.cpp
+    src/options/options_info.cpp
 )
 
 # Add header path for library
