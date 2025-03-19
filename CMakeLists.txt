@@ -12,6 +12,7 @@ endif()
 add_library(capgam_hello
     src/hello.cpp
     src/math/primative_operator.cpp
+    src/options/payoffs.cpp
 )
 
 # Add header path for library
