@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <capgam/options/payoffs.hpp>
+#include <capgam/instruments/payoffs.hpp>
 
 TEST(PayoffTest, CallPayoffPositiveTest) {
     double strike_price = 100.0;

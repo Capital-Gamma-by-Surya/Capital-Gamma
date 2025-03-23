@@ -11,4 +11,5 @@ FetchContent_MakeAvailable(googletest)
 
 add_subdirectory(basic)
 add_subdirectory(maths)
-add_subdirectory(options)
+add_subdirectory(instruments)
+add_subdirectory(models)

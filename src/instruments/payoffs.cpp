@@ -1,4 +1,4 @@
-#include <capgam/options/payoffs.hpp>
+#include <capgam/instruments/payoffs.hpp>
 #include <algorithm>
 
 CallPayoff::CallPayoff(double strike_price) : strike_price_{strike_price} {}

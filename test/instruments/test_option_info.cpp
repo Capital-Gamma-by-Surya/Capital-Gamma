@@ -1,6 +1,6 @@
 #include <memory>
 #include <gtest/gtest.h>
-#include <capgam/options/option_info.hpp>
+#include <capgam/instruments/option_info.hpp>
 
 TEST(OptionInfoTest, CallOptionTest) {
     OptionInfo call_option{std::make_unique<CallPayoff>(CallPayoff{100.0}), 5.0};

@@ -1,5 +1,5 @@
 #include <memory>
-#include <capgam/options/payoffs.hpp>
+#include <capgam/instruments/payoffs.hpp>
 
 class OptionInfo {
 public:
