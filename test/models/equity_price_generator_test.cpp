@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+
 #include <capgam/models/equity_price_generator.hpp>
 
 TEST(EquityPriceGeneratorTest, GeneratorTest) {
@@ -9,6 +10,4 @@ TEST(EquityPriceGeneratorTest, GeneratorTest) {
   size_t expected_sizes = 21;
 
   EXPECT_EQ(num_prices, expected_sizes);
-
 }
-  
