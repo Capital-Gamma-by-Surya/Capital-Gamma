@@ -34,6 +34,11 @@ add_executable(cap_gam_main
 # Link our library into the main executable
 target_link_libraries(cap_gam_main PRIVATE capgam_hello)
 
+if(BUILD_PYTHON_BINDINGS)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+    add_subdirectory(bindings)
+endif()
+
 # Enable testing
 option(ENABLE_TESTING "Enable building tests" ON)
 if (ENABLE_TESTING)
