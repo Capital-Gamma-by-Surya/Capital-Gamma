@@ -17,6 +17,7 @@ add_library(capgam_hello
     src/instruments/payoffs.cpp
     src/instruments/options_info.cpp
     src/models/equity_price_generator.cpp
+    src/engine/mc_option_valuation.cpp
 )
 
 # Add header path for library
