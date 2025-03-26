@@ -15,9 +15,10 @@ jobs:
 
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build
+        run: pip install pybind11
 
       - name: Configure CMake
-        run: cmake -B build -DCMAKE_BUILD_TYPE=Debug -G Ninja
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_PYTHON_BINDINGS=TRUE -G Ninja
 
       - name: Build
         run: cmake --build build
