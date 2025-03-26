@@ -14,7 +14,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build && pip install pybind11
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build
+
+      - run: python -m venv .venv
+      - run: source .venv/bin/activate
+      - run: pip install pybind11
 
       - name: Configure CMake
         run: cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_PYTHON_BINDINGS=TRUE -G Ninja
