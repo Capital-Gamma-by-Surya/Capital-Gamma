@@ -17,9 +17,10 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build
 
       - name: Create virtual environment
-        run: python -m venv .venv
-        run: source .venv/bin/activate
-        run: pip install "pybind11[global]"
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install "pybind11[global]"
 
       - name: Configure CMake
         run: cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_PYTHON_BINDINGS=TRUE -G Ninja
