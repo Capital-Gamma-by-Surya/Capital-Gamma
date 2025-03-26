@@ -1,6 +1,7 @@
 #ifndef PRIM_OPER_HPP
 #define PRIM_OPER_HPP
 
+#include <cstddef>
 #include <vector>
 
 namespace calculate {
@@ -16,11 +17,11 @@ T multiply(T a, T b) {
 
 template <typename T>
 std::vector<T> vec_sum(const std::vector<T>& a, const std::vector<T>& b) {
-    size_t n_elems = b.size();
+    std::size_t n_elems = b.size();
     std::vector<T> result;
     result.reserve(n_elems);
 
-    for (size_t i = 0; i < n_elems; i++) {
+    for (std::size_t i = 0; i < n_elems; i++) {
         result.push_back(a[i] + b[i]);
     }
 
