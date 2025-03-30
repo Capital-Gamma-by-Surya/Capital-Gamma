@@ -10,7 +10,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     env:
-      VIRTUAL_ENV: /usr/venv
+      VIRTUAL_ENV: ${{github.workspace}}/venv
       PYTHONPATH: ${{github.workspace}}/build/python
 
     steps:
@@ -26,7 +26,7 @@ jobs:
           echo "${{env.VIRTUAL_ENV}}/bin" >> $GITHUB_PATH
           export PATH=${{env.VIRTUAL_ENV}}/bin:$PATH
           python3 -m venv ${{env.VIRTUAL_ENV}}
-          sudo pip3 install pytest "pybind11[global]"
+          pip3 install pytest "pybind11[global]"
 
       - name: Configure CMake
         run: |
