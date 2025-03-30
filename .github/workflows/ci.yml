@@ -23,7 +23,7 @@ jobs:
 
       - name: Set up Environment
         run: |
-          echo "${{env.VIRTUAL_ENV}}/bin" >> $GITHUB_PATH
+          sudo echo "${{env.VIRTUAL_ENV}}/bin" >> $GITHUB_PATH
           export PATH=${{env.VIRTUAL_ENV}}/bin:$PATH
           python3 -m venv ${{env.VIRTUAL_ENV}}
           pip3 install pytest "pybind11[global]"
