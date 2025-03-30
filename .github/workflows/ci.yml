@@ -9,19 +9,38 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      VIRTUAL_ENV: /usr/venv
+      PYTHONPATH: ${{github.workspace}}/build/python
+      CUSTOMPATH: /usr/venv/bin
+
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install dependencies
         run: |
-          sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build && pip install "pybind11[global]"
+          sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build
+
+      - name: Set up Environment
+        run: |
+          echo "${{env.CUSTOMPATH}}" >> $GITHUB_PATH
+          export PATH=${{env.CUSTOMPATH}}:$PATH
+          python3 -m venv ${{env.VIRTUAL_ENV}}
+          pip3 install pytest "pybind11[global]"
 
       - name: Configure CMake
-        run: cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_PYTHON_BINDINGS=TRUE -G Ninja
+        run: |
+          cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_PYTHON_BINDINGS=TRUE -G Ninja
 
       - name: Build
         run: cmake --build build
 
-      - name: Run Tests
-        run: cd build && ctest --output-on-failure
+      - name: Run C++ Tests
+        run: |
+          cd build && ctest --output-on-failure && cd ..
+
+      - name: Run Python Tests
+        run: |
+          pytest -v test/bindings/
