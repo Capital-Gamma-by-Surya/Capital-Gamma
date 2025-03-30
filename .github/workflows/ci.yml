@@ -23,10 +23,10 @@ jobs:
 
       - name: Set up Environment
         run: |
-          sudo echo "${{env.VIRTUAL_ENV}}/bin" >> $GITHUB_PATH
+          echo "${{env.VIRTUAL_ENV}}/bin" >> $GITHUB_PATH
           export PATH=${{env.VIRTUAL_ENV}}/bin:$PATH
           python3 -m venv ${{env.VIRTUAL_ENV}}
-          pip3 install pytest "pybind11[global]"
+          sudo pip3 install pytest "pybind11[global]"
 
       - name: Configure CMake
         run: |
