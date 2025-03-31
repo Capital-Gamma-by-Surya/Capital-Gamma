@@ -4,7 +4,7 @@ project(CapGamBindings)
 find_package(pybind11 REQUIRED)
 
 add_library(capgampy MODULE
-    call_option.cpp
+    payoff.cpp
 )
 
 set_target_properties(capgampy PROPERTIES PREFIX "")
