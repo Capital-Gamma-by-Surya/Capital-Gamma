@@ -8,7 +8,7 @@
 #include <vector>
 
 constexpr int NUM_TICKS = 5000;
-constexpr std::size_t RING_BUFFER_SIZE = 256;
+constexpr std::size_t RING_BUFFER_SIZE = 64;
 
 std::uint64_t get_curr_time() {
 	return std::chrono::duration_cast<std::chrono::nanoseconds>(

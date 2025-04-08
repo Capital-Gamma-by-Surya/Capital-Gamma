@@ -2,15 +2,15 @@
 #define RING_BUFFER_H
 
 #include <atomic>
-#include <vector>
+#include <array>
+
+constexpr std::size_t CACHE_LINE_SIZE = 64;
 
 template <typename T, std::size_t buffer_size>
 class RingBuffer {
 	static_assert((buffer_size & (buffer_size-1)) == 0, "Buffer size must be power of 2");
 public:
-	RingBuffer() : head_{0}, tail_{0} {
-		buffer_.resize(buffer_size);
-	}
+	RingBuffer() : head_{0}, tail_{0} {}
 
 	bool push(T& data) {
 		std::size_t head = head_.load(std::memory_order_relaxed);
@@ -43,9 +43,9 @@ public:
 	}
 
 private:
-	std::atomic<std::size_t> head_;
-	std::atomic<std::size_t> tail_;
-	std::vector<T> buffer_;
+	alignas(CACHE_LINE_SIZE) std::atomic<std::size_t> head_;
+	alignas(CACHE_LINE_SIZE) std::atomic<std::size_t> tail_;
+	alignas(CACHE_LINE_SIZE) std::array<T, buffer_size> buffer_;
 };
 
 #endif
