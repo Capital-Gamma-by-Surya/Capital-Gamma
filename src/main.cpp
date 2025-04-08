@@ -6,7 +6,6 @@
 #include <common/scoped_timer.h>
 
 #include <chrono>
-#include <sys/types.h>
 #include <thread>
 #include <vector>
 
@@ -39,14 +38,14 @@ void vector_buffer() {
 		router.route_order(order);
 	}
 
-	std::cout << "Total Processing Time Vector: " << (get_curr_time() - start_time)/1000 << "us" << std::endl;
+	std::cout << "total processing time vector: " << (get_curr_time() - start_time)/1000 << "us" << std::endl;
 	std::cout << "vector total latency: " << total_latency/1000 << "us" << std::endl;
 	std::cout << "vector average latency: " << (total_latency)/NUM_TICKS << "ns" << std::endl;
 }
 
 
 void producer(RingBuffer<MarketData, RING_BUFFER_SIZE>& ring_buff) {
-	ScopedTimer producer_timer{"producer"};
+	//ScopedTimer producer_timer{"producer"};
 	for (int i = 0; i<NUM_TICKS; i++) {
 		MarketData market_input{get_curr_time(), 15.0, 30.0, 18.0};
 		while(!ring_buff.push(market_input)) {
@@ -56,7 +55,7 @@ void producer(RingBuffer<MarketData, RING_BUFFER_SIZE>& ring_buff) {
 }
 
 void consumer(RingBuffer<MarketData, RING_BUFFER_SIZE>& ring_buff, DataTransformer& transformer, OrderRouter& router) {
-	ScopedTimer consumer_timer{"consumer"};
+	//ScopedTimer consumer_timer{"consumer"};
 	TimeSeriesDB database{20000};
 	MarketData market_data;
 	std::size_t count = 0;
@@ -94,7 +93,7 @@ void ring_buffer() {
 	producer_thread.join();
 	consumer_thread.join();
 
-	std::cout << "Total Processing Time Ring: " << (get_curr_time() - start_time)/1000 << "micros" << std::endl;
+	std::cout << "total processing time ring: " << (get_curr_time() - start_time)/1000 << "us" << std::endl;
 }
 
 int main() {
