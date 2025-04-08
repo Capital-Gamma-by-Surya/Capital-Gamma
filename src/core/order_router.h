@@ -2,13 +2,11 @@
 #define ORDER_ROUTER_H
 
 #include <core/message_structs.h>
-#include <common/scoped_timer.h>
 #include <iostream>
 
 class OrderRouter {
 public:
 	inline void route_order(const OrderData& order) const {
-		ScopedTimer timer{"router_order"};
 		std::cout << "Routing order: time = " << order.timestamp
 			<< ", mid price=" << order.mid_price << std::endl;
 	}
