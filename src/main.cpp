@@ -2,9 +2,11 @@
 #include <core/data_transformer.h>
 #include <core/order_router.h>
 #include <core/ring_buffer.h>
+#include <core/timeseries_db.h>
 #include <common/scoped_timer.h>
 
 #include <chrono>
+#include <sys/types.h>
 #include <thread>
 #include <vector>
 
@@ -55,21 +57,24 @@ void producer(RingBuffer<MarketData, RING_BUFFER_SIZE>& ring_buff) {
 
 void consumer(RingBuffer<MarketData, RING_BUFFER_SIZE>& ring_buff, DataTransformer& transformer, OrderRouter& router) {
 	ScopedTimer consumer_timer{"consumer"};
+	TimeSeriesDB database{20000};
 	MarketData market_data;
 	std::size_t count = 0;
-	std::uint64_t total_latency = 0;
+
 	while(true) {
 		if(ring_buff.pop(market_data)) {
 			count++;
 			OrderData transformed_data = transformer.transform_data(market_data);
 			router.route_order(transformed_data);
-			total_latency += (get_curr_time() - market_data.timestamp);
+			uint64_t latency = (get_curr_time() - market_data.timestamp);
+			database.post(latency);
 		} else {
 			std::this_thread::yield();
 		}
 		if(count==NUM_TICKS) {
-			std::cout << "ring total latency: " << total_latency/1000 << "us" << std::endl;
-			std::cout << "ring average latency: " << (total_latency)/NUM_TICKS << "ns" << std::endl;
+			database.print_statistics();
+			//std::cout << "ring total latency: " << total_latency/1000 << "us" << std::endl;
+			//std::cout << "ring average latency: " << (total_latency)/NUM_TICKS << "ns" << std::endl;
 			break;
 		}
 	}
