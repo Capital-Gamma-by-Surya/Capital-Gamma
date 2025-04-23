@@ -1,3 +1,6 @@
+#ifndef CAPGAM_INSTRUMENTS_OPTIONINFO_H
+#define CAPGAM_INSTRUMENTS_OPTIONINFO_H
+
 #include <capgam/instruments/payoffs.hpp>
 #include <memory>
 
@@ -11,3 +14,5 @@ class OptionInfo {
     std::unique_ptr<Payoff> payoff_type_;
     double time_to_exp_;
 };
+
+#endif

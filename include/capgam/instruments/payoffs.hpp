@@ -1,3 +1,6 @@
+#ifndef CAPGAM_INSTRUMENTS_PAYOFFS_H
+#define CAPGAM_INSTRUMENTS_PAYOFFS_H
+
 class Payoff {
    public:
     virtual double payoff(double price) const = 0;
@@ -21,3 +24,5 @@ class PutPayoff final : public Payoff {
    private:
     double strike_price_;
 };
+
+#endif

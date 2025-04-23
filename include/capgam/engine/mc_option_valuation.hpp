@@ -1,3 +1,6 @@
+#ifndef CAPGAM_ENGINE_MC_OPTION_VALUATION_H
+#define CAPGAM_ENGINE_MC_OPTION_VALUATION_H
+
 #include <capgam/instruments/option_info.hpp>
 
 class MCOptionValuation {
@@ -12,3 +15,5 @@ class MCOptionValuation {
     int time_steps_;
     double vol_, int_rate_, div_rate_;
 };
+
+#endif
