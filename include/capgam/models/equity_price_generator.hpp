@@ -1,3 +1,6 @@
+#ifndef CAPGAM_MODELS_EPG_HPP
+#define CAPGAM_MODELS_EPG_HPP
+
 #include <vector>
 
 class EquityPriceGenerator {
@@ -17,3 +20,5 @@ class EquityPriceGenerator {
     double div_rate_;
     double dt_;
 };
+
+#endif

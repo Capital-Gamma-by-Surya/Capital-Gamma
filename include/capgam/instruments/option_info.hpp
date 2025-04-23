@@ -1,5 +1,5 @@
-#ifndef CAPGAM_INSTRUMENTS_OPTIONINFO_H
-#define CAPGAM_INSTRUMENTS_OPTIONINFO_H
+#ifndef CAPGAM_INSTRUMENTS_OPTIONINFO_HPP
+#define CAPGAM_INSTRUMENTS_OPTIONINFO_HPP
 
 #include <capgam/instruments/payoffs.hpp>
 #include <memory>
