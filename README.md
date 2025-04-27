@@ -1,6 +1,6 @@
 # Capital‑Gamma
 [![CI](https://github.com/Capital-Gamma-by-Surya/Capital-Gamma/actions/workflows/ci.yml/badge.svg)](https://github.com/Capital-Gamma-by-Surya/Capital-Gamma/actions/workflows/ci.yml)
-![Pre-Release](https://img.shields.io/github/release/Capital-Gamma-by-Surya/Capital-Gamma?include_prereleases&label=latest%20pre-release)
+[![Pre-Release](https://img.shields.io/github/release/Capital-Gamma-by-Surya/Capital-Gamma?include_prereleases&label=latest%20pre-release)](https://github.com/Capital-Gamma-by-Surya/Capital-Gamma/releases/tag/v0.0.1-alpha)
 ![Lang](https://img.shields.io/github/languages/top/Capital-Gamma-by-Surya/Capital-Gamma)
 
 A **high‑performance quantitative‑finance prototype**:  
