@@ -1,5 +1,5 @@
 #!/bin/bash
 
-find . -type f \( -name "*.cpp" -o -name "*.hpp" \) -exec clang-format -i {} +
+find . -type f \( -name "*.cpp" -o -name "*.h*" \) -exec clang-format -i {} +
 
 black .

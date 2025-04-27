@@ -38,6 +38,10 @@ if(BUILD_PYTHON_BINDINGS)
     add_subdirectory(bindings)
 endif()
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+
 # Enable testing
 option(ENABLE_TESTING "Enable building tests" ON)
 if (ENABLE_TESTING)
