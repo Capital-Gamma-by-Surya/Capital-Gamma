@@ -10,7 +10,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 add_subdirectory(basic)
-add_subdirectory(maths)
 add_subdirectory(instruments)
 add_subdirectory(models)
 add_subdirectory(engine)

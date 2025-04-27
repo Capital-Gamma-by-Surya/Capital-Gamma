@@ -13,7 +13,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Create a library from "hello" source
 add_library(capgam_hello
     src/hello.cpp
-    src/math/primative_operator.cpp
     src/instruments/payoffs.cpp
     src/instruments/options_info.cpp
     src/models/equity_price_generator.cpp
