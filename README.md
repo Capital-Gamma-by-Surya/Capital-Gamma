@@ -1,4 +1,5 @@
 # Capital‑Gamma
+[![CI](https://github.com/Capital-Gamma-by-Surya/Capital-Gamma/actions/workflows/ci.yml/badge.svg)](https://github.com/Capital-Gamma-by-Surya/Capital-Gamma/actions/workflows/ci.yml)
 
 A **high‑performance quantitative‑finance prototype**:  
 *Monte‑Carlo option valuation* **+** *low‑latency trading‑flow simulation* in modern **C++17**, with optional Python bindings.
