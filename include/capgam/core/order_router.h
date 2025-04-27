@@ -6,11 +6,11 @@
 #include <iostream>
 
 class OrderRouter {
-       public:
-        inline void route_order(const OrderData& order) const {
-                // std::cout << "Routing order: time = " << order.timestamp
-                //	<< ", mid price=" << order.mid_price << std::endl;
-        }
+   public:
+    inline void route_order(const OrderData& order) const {
+        // std::cout << "Routing order: time = " << order.timestamp
+        //	<< ", mid price=" << order.mid_price << std::endl;
+    }
 };
 
 #endif
