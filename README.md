@@ -1,6 +1,6 @@
 # Capital‑Gamma
 
-A **high‑performance quantitative‑finance playground**:  
+A **high‑performance quantitative‑finance prototype**:  
 *Monte‑Carlo option valuation* **+** *low‑latency trading‑flow simulation* in modern **C++17**, with optional Python bindings.
 
 ---
