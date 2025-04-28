@@ -43,14 +43,14 @@ pip install -r requirements.txt   # black, pytest, pybind11
 
 ### Build & Run
 ```bash
-git clone https://github.com/<you>/Capital-Gamma.git
+git clone https://github.com/Capital-Gamma-by-Surya/Capital-Gamma.git
 cd Capital-Gamma
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . -j
 
 # run C++ demo (trading flow + timer stats)
-./src/capital-gamma
+./cap_gam_main
 ```
 
 ### Build Python wheels
